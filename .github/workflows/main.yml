@@ -25,4 +25,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: kitchen-timer-exe
-          path: dist/kitchenTimer/kitchenTimer.exe  # ← ここも合わせて変更！
+          path: dist/kitchenTimer.exe  # ← ここも合わせて変更！

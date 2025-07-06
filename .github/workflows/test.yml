@@ -1,0 +1,22 @@
+name: Mac Screenshot Test
+
+on: [workflow_dispatch]
+
+jobs:
+  screenshot:
+    runs-on: macos-latest
+    steps:
+      - name: Create dummy desktop image
+        run: |
+          mkdir -p ~/Desktop
+          osascript -e 'tell application "Finder" to make new file at desktop with properties {name:"dummy.txt"}'
+
+      - name: Take screenshot of desktop
+        run: |
+          screencapture -x ~/Desktop/screenshot.png
+
+      - name: Upload screenshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: mac-desktop-screenshot
+          path: ~/Desktop/screenshot.png

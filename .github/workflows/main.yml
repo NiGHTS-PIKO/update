@@ -17,13 +17,12 @@ jobs:
       - name: Install dependencies
         run: |
           pip install pyinstaller
-          # 必要なら他の依存もここで追加
 
       - name: Build EXE
-        run: pyinstaller キッチンタイマー.spec
+        run: pyinstaller kitchenTimer.spec  # ← 英数字に変更！
 
       - name: Upload EXE
         uses: actions/upload-artifact@v4
         with:
           name: kitchen-timer-exe
-          path: dist/キッチンタイマー/キッチンタイマー.exe
+          path: dist/kitchenTimer/kitchenTimer.exe  # ← ここも合わせて変更！
